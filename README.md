@@ -1,2 +1,2 @@
-# Geometry-Dash-AI
-Ai lab project: reinforcement learning
+# Talking Portrait
+Ai lab project: Computer Vision and NLP
