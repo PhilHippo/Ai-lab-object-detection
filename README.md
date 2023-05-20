@@ -1,2 +1,2 @@
-# Talking Portrait
-Ai lab project: Computer Vision and NLP
+# Car plate recognition
+Ai lab project - object detection: Computer Vision and NLP
