@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 #directory containing the images
-directory = "positive"
+directory = "negative"
 resize_factor = 0.15
 
 # Loop through the images in the directory
@@ -14,12 +14,14 @@ for filename in os.listdir(directory):
         # Get the original size of the image
         width, height = image.size
 
-        # Calculate the new size of the image
-        new_width = int(width * resize_factor)
-        new_height = int(height * resize_factor)
+        if width > 2000 and height > 2000:
 
-        # Resize the image using Pillow (PIL)
-        resized_image = image.resize((new_width, new_height))
+            # Calculate the new size of the image
+            new_width = int(width * resize_factor)
+            new_height = int(height * resize_factor)
 
-        # Save the resized image
-        resized_image.save(os.path.join(directory, f"{filename}"))
+            # Resize the image using Pillow (PIL)
+            resized_image = image.resize((new_width, new_height))
+
+            # Save the resized image
+            resized_image.save(os.path.join(directory, f"{filename}"))

@@ -22,7 +22,7 @@ def generate_negative_description_file():
     #opencv_traincascade.exe uses the vector file to train the model
 #Note: works only in windows hehe
 
-#Open the command line and run "opencv\build\x64\vc15\bin\opencv_annotation.exe --annotations=pos.txt --images=positive\"
+#Open the command line and run "D:\REPOSITORIES\WORKING_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_annotation.exe --annotations=pos.txt --images=positive\"
 
 #next we vectorize the images
 #run "opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num 1000 -vec pos.vec"
