@@ -22,10 +22,10 @@ def generate_negative_description_file():
     #opencv_traincascade.exe uses the vector file to train the model
 #Note: works only in windows hehe
 
-#Open the command line and run "D:\REPOSITORIES\WORKING_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_annotation.exe --annotations=pos.txt --images=positive\"
+#Open the command line and run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_annotation.exe --annotations=pos.txt --images=positive\"
 
 #next we vectorize the images
-#run "opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num 1000 -vec pos.vec"
+#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num 3000 -vec pos.vec"
 
 #finally we train the model and save it in the cascade folder
-#run "opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 24 -h 24 -numPos 40 -numNeg 20 -numStages 10"
+#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 24 -h 24 -numPos 670 -numNeg 1000 -numStages 10 -maxFalseAlarmRate 0.3 -minHitRate 0.99 -acceptanceRatioBreakValue 0.0001"

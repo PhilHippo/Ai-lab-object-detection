@@ -1,27 +1,8 @@
 import cv2 as cv
 import numpy as np
 import os
+from PIL import Image
 from time import time
-
-def filter_image(img):
-    # convert the image to the HSV color space
-    hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
-
-    # define the lower and upper bounds of the color range in HSV
-    lower_color = np.array([0, 100, 20])
-    upper_color = np.array([40, 255, 255])
-
-    # create a mask that isolates the color range in the image
-    mask = cv.inRange(hsv, lower_color, upper_color)
-
-    # apply the mask to the original image to obtain the filtered image
-    filtered_img = cv.bitwise_and(img, img, mask=mask)
-
-    # blend the filtered image with the original image to retain some other colors
-    alpha = 0.5
-    blended_img = cv.addWeighted(img, alpha, filtered_img, 1 - alpha, 0)
-
-    return blended_img
 
 
 # draw rectangles around the detected faces in the original frame
@@ -43,19 +24,24 @@ while(True):
     # get an updated image of the webcam
     ret, frame = cap.read()
 
-    filtered_frame = filter_image(frame)
+     # Convert the frame to grayscale
+    gray_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+    blurred_frame = cv.GaussianBlur(gray_frame, (5, 5), 0)
+
+    adjusted_frame = cv.equalizeHist(blurred_frame)
 
     # do object detection
-    rectangles = cascade_fanta.detectMultiScale(filtered_frame, scaleFactor=1.5, minNeighbors=5)
+    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.5, minNeighbors=4)
 
     # draw the detection results onto the original image
-    detection_image = draw_rectangle(rectangles, frame)
+    detection_image = draw_rectangle(rectangles, adjusted_frame)
 
     # display the images
     cv.imshow('Matches', detection_image)
 
     # debug the loop rate
-    print('FPS {}'.format(1 / (time() - loop_time)))
+    #print('FPS {}'.format(1 / (time() - loop_time)))
     loop_time = time()
 
     # press 'q' with the output window focused to exit.
