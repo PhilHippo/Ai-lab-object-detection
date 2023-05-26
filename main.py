@@ -23,11 +23,11 @@ while(True):
     #pipeline filters
 
     adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)   
+    #adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)   
     adjusted_frame = cv.equalizeHist(adjusted_frame)
 
     # do object detection
-    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.5, minNeighbors=15)
+    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.4, minNeighbors=16)
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, frame)
