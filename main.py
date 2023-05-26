@@ -28,17 +28,17 @@ while(True):
 
     adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
-    adjusted_frame = cv.GaussianBlur(adjusted_frame, (15, 15), 0)   
+    #adjusted_frame = cv.GaussianBlur(adjusted_frame, (9, 9), 0)   
 
     adjusted_frame = cv.equalizeHist(adjusted_frame)
 
     #adjusted_frame = cv.adaptiveThreshold(adjusted_frame, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 1.5)
    
     # do object detection
-    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.25, minNeighbors=4)
+    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=2, minNeighbors=22)
 
     # draw the detection results onto the original image
-    detection_image = draw_rectangle(rectangles, adjusted_frame)
+    detection_image = draw_rectangle(rectangles, frame)
 
     # display the images
     cv.imshow('Matches', detection_image)

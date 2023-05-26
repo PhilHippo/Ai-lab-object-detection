@@ -16,11 +16,11 @@ def apply_filters_to_images(folder_path, new_folder_path):
 
         # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        image = cv2.GaussianBlur(image, (7, 7), 0)
+        #image = cv2.GaussianBlur(image, (5, 5), 0)
 
         image = cv2.equalizeHist(image)
 
-        image = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 9, 2)
+        #image = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 9, 2)
 
         cv2.imwrite(new_folder_path+file_name, image)
         print(f"Processed: {file_name}")
