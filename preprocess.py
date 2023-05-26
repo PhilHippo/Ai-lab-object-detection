@@ -11,7 +11,7 @@ def apply_filters_to_images(folder_path, new_folder_path):
     for i, file_name in enumerate(image_files):
         image_path = os.path.join(folder_path, file_name)
         image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2GRAY)
-        #image = cv2.GaussianBlur(image, (17, 17), 0)
+        image = cv2.GaussianBlur(image, (3, 3), 0)
         #image = cv2.Canny(image, threshold1=30, threshold2=100)
 
         # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -41,6 +41,6 @@ def rename_images(folder_path):
         os.rename(image_path, new_path)
         print(f"Renamed: {file_name} -> {new_file_name}")
 
-folder_path = "neg_unprocessed/"
-new_folder_path = "negative/"
+folder_path = "pos_unprocessed/"
+new_folder_path = "positive/"
 apply_filters_to_images(folder_path, new_folder_path)
