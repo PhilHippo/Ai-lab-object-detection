@@ -24,15 +24,18 @@ while(True):
     # get an updated image of the webcam
     ret, frame = cap.read()
 
-     # Convert the frame to grayscale
-    gray_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    # Convert the frame to grayscale
 
-    blurred_frame = cv.GaussianBlur(gray_frame, (5, 5), 0)
+    adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
-    adjusted_frame = cv.equalizeHist(blurred_frame)
+    adjusted_frame = cv.GaussianBlur(adjusted_frame, (15, 15), 0)   
 
+    adjusted_frame = cv.equalizeHist(adjusted_frame)
+
+    #adjusted_frame = cv.adaptiveThreshold(adjusted_frame, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 1.5)
+   
     # do object detection
-    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.5, minNeighbors=4)
+    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.25, minNeighbors=4)
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, adjusted_frame)

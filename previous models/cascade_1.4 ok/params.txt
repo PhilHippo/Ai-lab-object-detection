@@ -1,0 +1,8 @@
+scalefactor = 1.35
+minNeighbors = 8
+acceptanceRatio    340 : 0.000616729
+maxFalseAlarmRate 0.47
+
+w 20 h 54
+
+GaussianBlur 7,7 + greyscale + equalizeHist

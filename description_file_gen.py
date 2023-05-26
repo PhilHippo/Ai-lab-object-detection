@@ -25,7 +25,7 @@ def generate_negative_description_file():
 #Open the command line and run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_annotation.exe --annotations=pos.txt --images=positive\"
 
 #next we vectorize the images
-#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 24 -h 24 -num 3000 -vec pos.vec"
+#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 20 -h 54 -num 3000 -vec pos.vec"
 
 #finally we train the model and save it in the cascade folder
-#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 24 -h 24 -numPos 670 -numNeg 1000 -numStages 10 -maxFalseAlarmRate 0.3 -minHitRate 0.99 -acceptanceRatioBreakValue 0.0001"
+#run "C:\Users\wangf\Myrepos\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 20 -h 54  -numPos 670 -numNeg 340 -minHitRate 0.99 -maxFalseAlarmRate 0.3 -numStages 10 -acceptanceRatioBreakValue 0.0001"
