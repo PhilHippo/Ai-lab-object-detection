@@ -38,3 +38,15 @@ Look at "create samples output.png".
 
 The **cascade.xml** file in the cascade folder is the actual trained model.
 To create that file we use the OpenCV's integrated **opencv_createsamples** application taking as input pos.vec and neg.txt
+
+# ESP 32 cam
+
+Per vedere lo stream wireless della camera in real time basta utilizzare un indirizzo https che metto di seguito:
+
+http://192.168.178.146
+
+Basta collegare la camera alla corrente, incollare l'indirizzo sul browser e cliccare "avvia stream" sulla pagina web che si apre.
+
+Non sono sicuro che l'indirizzo rimanga lo stesso se si cambia rete.
+La camera infatti ha bisongo del nome della rete e della password per poter streammare.
+Per indicare nome e password bisogna scriverli sul codice che poi viene caricato sulla camera tramite il computer.
