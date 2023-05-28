@@ -41,12 +41,19 @@ To create that file we use the OpenCV's integrated **opencv_createsamples** appl
 
 # ESP 32 cam
 
-Per vedere lo stream wireless della camera in real time basta utilizzare un indirizzo https che metto di seguito:
+Per vedere lo stream wireless della camera in real time basta utilizzare un indirizzo https che varia a seconda della rete
+con la quale si configura la camera:
 
-http://192.168.178.146
+*http://192.168.178.146*    Wi-Fi casa di Simone
+
+*http://192.168.178.146*    hotspot telefono di Simone
 
 Basta collegare la camera alla corrente, incollare l'indirizzo sul browser e cliccare "avvia stream" sulla pagina web che si apre.
 
-Non sono sicuro che l'indirizzo rimanga lo stesso se si cambia rete.
-La camera infatti ha bisongo del nome della rete e della password per poter streammare.
-Per indicare nome e password bisogna scriverli sul codice che poi viene caricato sulla camera tramite il computer.
+1. L'indirizzo https generato per una rete in particolare non cambia nel tempo, rimane lo stesso.
+2. Affinchè funzioni, camera e computer devono essere collegati alla stessa rete Wi-Fi.
+3. Le impostazioni della camera possono essere cambiate in real time usando la pagina web
+
+(tranne la risoluzione: meglio non cambiarla se no si bugga la finestra di openCV)
+
+Per indicare nome e password bisogna scriverli sul codice che poi viene caricato sulla camera tramite Arduino IDE.
