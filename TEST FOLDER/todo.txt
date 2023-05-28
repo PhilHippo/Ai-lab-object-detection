@@ -1,0 +1,6 @@
+1) for every can generate 225 positive samples with annotations
+
+- loop through all images in a folder 
+- for each image generate 2500 positive samples with annotations
+- choose randomly 200 samples from each can folder + the true positives
+- write all 200 * 18 = 3600 lines to a txt file + the true positives
