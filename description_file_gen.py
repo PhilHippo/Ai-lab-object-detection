@@ -1,20 +1,11 @@
-#once we have the positive folder and negative folder, we can generate the description file
-
 import os
 
-#The negative images should be listed in a special negative image file containing one image path per line
 def generate_negative_description_file():
     # open the output file for writing. will overwrite all existing data in there
     with open('neg.txt', 'w') as f:
         # loop over all the filenames
         for filename in os.listdir('negative'):
             f.write('negative/' + filename + '\n')
-generate_negative_description_file()
-
-#The positive images should be listed in a special positive image file containing one image path per line,
-#followed by the number of objects in the image, and the coordinates of each object.
-    #img/img1.jpg  1  140 100 45 45
-    #img/img2.jpg  2  100 200 50 50   50 30 25 25
 
 #To do so, opencv helps us by providing a tool. We loop through all the images in the positive folder and draw rectagles where the objects are
 #In the path "opencv\build\x64\vc15\bin" we find:
