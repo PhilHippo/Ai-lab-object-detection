@@ -1,40 +1,54 @@
-# AI Lab: Computer Vision and NLP
+# Real-World Aim Assist
 
-Computer Vision project: Object Detection
+Object Detection using Haar Cascade Classifier
 
-## Intro
+## Introduction
 
-OpenCV supports a variety of machine learning algorithms and while deep neural networks have received a lot of attention lately
-**Haar Cascade Classifiers** remain the easiest to get started with and they can still produce good results.
+The aim of this project is to build a prototype of a real-world gun aim assist using object detection and audio signals.
+
+OpenCV supports a variety of machine learning algorithms and while deep neural networks have received a lot of attention lately, **Haar Cascade Classifiers** remain a valid choice when dealing with object detection.
+
+The reason for this is that Cascade Classifiers represent a compromise between *speed* and *robustness*:
+
+1. they are computationally efficient and can process images in real-time or near real-time, even on resource-constrained devices
+2. they have been proven to work well in a variety of real-world scenarios and lighting conditions
+
+The training of a Cascade Classifier involves many steps starting from the creation of the data set.
 
 ## Cascade Classifier Training
 
-In order to train a Cascade Classifier we need:
+In order to train a Cascade Classifier we need first and foremost:
 
 1. a set of **negative samples** (containing everything you do not want to detect)
 2. a set of **positive samples** (containing actual objects you want to detect)
 
 ### Negative Samples
 
-Negative samples are images of environments not containing the object we want to detect, but where the object is likely to be found.
-For this reason Negative Samples are also called Background Samples or Background Images.
-These negative images should then be listed in a special **neg.txt** file containing one image path per line.
+Negative samples are images of environments not containing the object we want to detect, but where the object is likely to be found. For this reason Negative Samples are also called Background Samples or Background Images.
 
-To build the neg.txt file we use the **generate_negative_description_file()** function in description_file_gen.py
+These negative images should then be listed in a special **Negative Description File** file whose structure is shown below:
+
+***DA COMPLETARE UNA VOLTA SISTEMATE LE CARTELLE***
+
+To build it we use the **negDesFileGenerator()** function in fileGeneration.py.
 
 ### Positive Samples
 
 Positive Samples are images containing the object you want to detect.
-Once the positive images are obtained we must proceed with the creation of the **pos.txt** file containing
-one image path per line, the number of occurances of the object, the coordinates of the object bounding rectangle.
 
-To build the pos.txt file we can use the OpenCV's integrated annotation tool: **opencv_annotation**.
+Once the positive images are obtained we must proceed with the creation of the **Positive Description File** which contains the following information for each line:
 
-Next thing we need to do is we need to create a **pos.vec** file from our pos.txt file.
-To do that we use the **opencv_createsamples** application.
-Look at "create samples output.png".
+1. the image path
+2. the number of occurances of the object in that image
+3. the coordinates of the object's bounding rectangle (x, y, width, height)
+
+To build it we use the OpenCV's integrated annotation tool: **opencv_annotation**.
 
 ### .xml file creation
+
+Next thing we need to do is creating a **pos.vec** file from our pos.txt file.
+To do that we use the **opencv_createsamples** application.
+Look at "create samples output.png".
 
 The **cascade.xml** file in the cascade folder is the actual trained model.
 To create that file we use the OpenCV's integrated **opencv_createsamples** application taking as input pos.vec and neg.txt

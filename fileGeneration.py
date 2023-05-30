@@ -2,6 +2,13 @@ import os
 import subprocess
 import time
 
+def negDesFileGenerator():
+    # open the output file for writing. will overwrite all existing data in there
+    with open('neg.txt', 'w') as f:
+        # loop over all the filenames
+        for filename in os.listdir('negative'):
+            f.write('negative/' + filename + '\n')
+
 def new_info(can):
     # Get the current working directory
     cwd = os.getcwd()
@@ -39,4 +46,3 @@ for can in os.listdir("cans"):
     run_cmd(cmd)
     time.sleep(0.2)
     new_info(can.split(".")[0])
-
