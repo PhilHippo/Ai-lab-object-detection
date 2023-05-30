@@ -1,31 +1,9 @@
 import cv2 as cv
-from playsound import playsound
 from utility import *
 
-
-def speak():
-    can = get_biggest_rectangle(rectangles) # the can chosen as a target is the biggest one
-
-    #if it detects at least 1 rectangle, play sound
-    if can is not None:
-        can_x = can[0]
-        can_y = can[1]
-        can_width = can[2]
-        can_height = can[3]
-
-        if below_of_can(can_height, can_y, frame_center[1]): audiopath = audio_paths["up"]
-        elif above_of_can(can_y, frame_center[1]): audiopath = audio_paths["down"]
-        elif right_of_can(can_width, can_x, frame_center[0]): audiopath = audio_paths["left"]
-        elif left_of_can(can_x, frame_center[0]): audiopath = audio_paths["right"]
-        else: audiopath = audio_paths["shoot"]
-
-        playsound(audiopath, False)
-
-
-if __name__ == '__main__':
-    # load the trained model
-    cascade_model = cv.CascadeClassifier('/Users/simonerussolillo/Desktop/Uni/Second Year/Second Semester/Computer Vision/Ai-lab-object-detection/cascade/haarcascade_eye_tree_eyeglasses.xml')
-    cap = cv.VideoCapture(0)
+# load the trained model
+cascade_model = cv.CascadeClassifier('cascade\haarcascade_eye_tree_eyeglasses.xml')
+cap = cv.VideoCapture(0)
 
     #list of audio paths
     #Windows traditionally uses the backslash (\) to separate directories in file paths
@@ -43,20 +21,21 @@ if __name__ == '__main__':
         # get an updated image of the webcam
         ret, frame = cap.read()
 
-        #pipeline filters
-        adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
-        adjusted_frame = cv.equalizeHist(adjusted_frame)
+    #pipeline filters
+    adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
+    adjusted_frame = cv.equalizeHist(adjusted_frame)
+    adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)
 
-        # do object detection
-        rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.1, minNeighbors=4)
+    # do object detection
+    rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.2, minNeighbors=10)
 
-        # draw the detection results onto the original image
-        detection_image = draw_rectangle(rectangles, frame)
-        detection_image = draw_cross(detection_image, frame_center[0], frame_center[1])
-        
-        if frame_counter == 12:
-            speak()
-            frame_counter = 0
+    # draw the detection results onto the original image
+    detection_image = draw_rectangle(rectangles, frame)
+    detection_image = draw_cross(detection_image, frame_center[0], frame_center[1])
+    
+    if frame_counter == 12:
+        speak(rectangles, frame_center, audio_paths)
+        frame_counter = 0
 
         cv.imshow('Matches', detection_image)
 
