@@ -114,7 +114,7 @@ def get_biggest_rectangle(rectangles: list):
 
 def speak(rectangles, frame_center, audio_paths):
     """
-    
+    Selects the correct audio signal to play given the the position of the target.
     """
     can = get_biggest_rectangle(rectangles)
 
