@@ -2,6 +2,8 @@ import cv2 as cv
 from utility import *
 
 # load the trained model
+#Windows traditionally uses the backslash (\) to separate directories in file paths
+#other operationg systems (including Mac OS X and Linux) use forward slash (/)
 cascade_model = cv.CascadeClassifier('cascadebest/cascade.xml')
 cap = cv.VideoCapture(0)
 
