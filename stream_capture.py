@@ -1,7 +1,5 @@
 import cv2
 
-# se lo stream non parte forse è perchè è già attivo sul browser
-# o browser o openCV, entrambi contemporaneamente non va
 
 # http://192.168.178.146 wifi
 # http://192.168.132.152 Mi A3

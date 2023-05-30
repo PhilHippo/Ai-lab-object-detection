@@ -3,7 +3,7 @@ from playsound import playsound
 from utility import *
 
 def speak():
-    can = getBiggestRectangle(rectangles)
+    can = get_biggest_rectangle(rectangles)
 
     #if it detects at least 1 rectangle, play sound
     if can is not None:
@@ -11,24 +11,24 @@ def speak():
         can_height = can[3]
         can_width = can[2]
 
-        if belowOfCan(can_height, can_xy[1], frame_center[1]): audiopath = audio_paths["up"]
-        elif aboveOfCan(can_xy[1], frame_center[1]): audiopath = audio_paths["down"]
-        elif rightOfCan(can_width, can_xy[0] , frame_center[0]): audiopath = audio_paths["left"]
-        elif leftOfCan(can_xy[0], frame_center[0]): audiopath = audio_paths["right"]
+        if below_of_can(can_height, can_xy[1], frame_center[1]): audiopath = audio_paths["up"]
+        elif above_of_can(can_xy[1], frame_center[1]): audiopath = audio_paths["down"]
+        elif right_of_can(can_width, can_xy[0] , frame_center[0]): audiopath = audio_paths["left"]
+        elif left_of_can(can_xy[0], frame_center[0]): audiopath = audio_paths["right"]
         else: audiopath = audio_paths["shoot"]
 
         playsound(audiopath, False)
 
 # load the trained model
-cascade_model = cv.CascadeClassifier('cascade\haarcascade_eye_tree_eyeglasses.xml')
+cascade_model = cv.CascadeClassifier('/Users/simonerussolillo/Desktop/Uni/Second Year/Second Semester/Computer Vision/Ai-lab-object-detection/cascade/haarcascade_eye_tree_eyeglasses.xml')
 cap = cv.VideoCapture(0)
 
 #list of audio paths
-audio_paths = {"up": r'audio\up.mp3', "down": r'audio\down.mp3', "left": r'audio\left.mp3', "right": r'audio\right.mp3', "shoot": r'audio\shoot.mp3'}
+audio_paths = {"up": r'audio/up.mp3', "down": r'audio/down.mp3', "left": r'audio/left.mp3', "right": r'audio/right.mp3', "shoot": r'audio/shoot.mp3'}
 
 # get the frame size and center
-frame_size = getFrameSize(cap)
-frame_center = getRectangleCenter((0, 0, frame_size[0], frame_size[1]))
+frame_size = get_frame_size(cap)
+frame_center = get_rectangle_center((0, 0, frame_size[0], frame_size[1]))
 
 frame_counter= 0
 
@@ -45,7 +45,7 @@ while(True):
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, frame)
-    detection_image = draw_crosshair(detection_image, frame_center[0], frame_center[1])
+    detection_image = draw_cross(detection_image, frame_center[0], frame_center[1])
     
     if frame_counter == 12:
         speak()
