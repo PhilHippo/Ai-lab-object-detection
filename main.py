@@ -12,7 +12,7 @@ def draw_rectangle(rectangles,frame):
     return updated_frame
 
 # load the trained model
-cascade_fanta = cv.CascadeClassifier('cascade/cascade.xml')
+cascade_fanta = cv.CascadeClassifier('cascade\haarcascade_eye_tree_eyeglasses.xml')
 cap = cv.VideoCapture(0)
 
 while(True):
@@ -27,7 +27,7 @@ while(True):
     adjusted_frame = cv.equalizeHist(adjusted_frame)
 
     # do object detection
-    rectangles = cascade_fanta.detectMultiScale(adjusted_frame, scaleFactor=1.4, minNeighbors=16)
+    rectangles = cascade_fanta.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=4)
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, frame)
