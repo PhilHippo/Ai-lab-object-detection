@@ -1,5 +1,5 @@
-scalefactor = 1.35
-minNeighbors = 8
+scalefactor = 1.2
+minNeighbors = 9
 acceptanceRatio    340 : 0.000616729
 maxFalseAlarmRate 0.47
 

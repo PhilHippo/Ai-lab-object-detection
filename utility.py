@@ -1,5 +1,7 @@
 import numpy as np
 import cv2 as cv
+from playsound import playsound
+
 
 # draw rectangles around the detected faces in the original frame
 def draw_rectangle(rectangles,frame):
@@ -82,3 +84,19 @@ def getBiggestRectangle(rectangles):
     
     return None
 
+def speak(rectangles, frame_center, audio_paths):
+    can = getBiggestRectangle(rectangles)
+
+    #if it detects at least 1 rectangle, play sound
+    if can is not None:
+        can_xy = can[0:2]
+        can_height = can[3]
+        can_width = can[2]
+
+        if belowOfCan(can_height, can_xy[1], frame_center[1]): audiopath = audio_paths["up"]
+        elif aboveOfCan(can_xy[1], frame_center[1]): audiopath = audio_paths["down"]
+        elif rightOfCan(can_width, can_xy[0] , frame_center[0]): audiopath = audio_paths["left"]
+        elif leftOfCan(can_xy[0], frame_center[0]): audiopath = audio_paths["right"]
+        else: audiopath = audio_paths["shoot"]
+
+        playsound(audiopath, False)

@@ -1,26 +1,9 @@
 import cv2 as cv
-from playsound import playsound
 from utility import *
 
-def speak():
-    can = getBiggestRectangle(rectangles)
-
-    #if it detects at least 1 rectangle, play sound
-    if can is not None:
-        can_xy = can[0:2]
-        can_height = can[3]
-        can_width = can[2]
-
-        if belowOfCan(can_height, can_xy[1], frame_center[1]): audiopath = audio_paths["up"]
-        elif aboveOfCan(can_xy[1], frame_center[1]): audiopath = audio_paths["down"]
-        elif rightOfCan(can_width, can_xy[0] , frame_center[0]): audiopath = audio_paths["left"]
-        elif leftOfCan(can_xy[0], frame_center[0]): audiopath = audio_paths["right"]
-        else: audiopath = audio_paths["shoot"]
-
-        playsound(audiopath, False)
 
 # load the trained model
-cascade_model = cv.CascadeClassifier('cascade\haarcascade_eye_tree_eyeglasses.xml')
+cascade_model = cv.CascadeClassifier('cascadebest\cascade.xml')
 cap = cv.VideoCapture(0)
 
 #list of audio paths
@@ -39,16 +22,17 @@ while(True):
     #pipeline filters
     adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
     adjusted_frame = cv.equalizeHist(adjusted_frame)
+    adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)
 
     # do object detection
-    rectangles = cascade_model.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=4)
+    rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.2, minNeighbors=10)
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, frame)
     detection_image = draw_crosshair(detection_image, frame_center[0], frame_center[1])
     
     if frame_counter == 12:
-        speak()
+        speak(rectangles, frame_center, audio_paths)
         frame_counter = 0
 
     cv.imshow('Matches', detection_image)
