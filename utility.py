@@ -3,7 +3,6 @@ import cv2 as cv
 from playsound import playsound
 
 
-
 def draw_rectangle(rectangles: list, frame):
     """
     Draws a rectangle on the given frame for each tuple (x, y, w, h) in the rectangles list.
@@ -111,19 +110,25 @@ def get_biggest_rectangle(rectangles: list):
     
     return None
 
+
+
 def speak(rectangles, frame_center, audio_paths):
+    """
+    
+    """
     can = get_biggest_rectangle(rectangles)
 
     #if it detects at least 1 rectangle, play sound
     if can is not None:
-        can_xy = can[0:2]
+        can_x = can[0]
+        can_y = can[1]
         can_height = can[3]
         can_width = can[2]
 
-        if below_of_can(can_height, can_xy[1], frame_center[1]): audiopath = audio_paths["up"]
-        elif above_of_can(can_xy[1], frame_center[1]): audiopath = audio_paths["down"]
-        elif right_of_can(can_width, can_xy[0] , frame_center[0]): audiopath = audio_paths["left"]
-        elif left_of_can(can_xy[0], frame_center[0]): audiopath = audio_paths["right"]
+        if below_of_can(can_height, can_y, frame_center[1]): audiopath = audio_paths["up"]
+        elif above_of_can(can_y, frame_center[1]): audiopath = audio_paths["down"]
+        elif right_of_can(can_width, can_x, frame_center[0]): audiopath = audio_paths["left"]
+        elif left_of_can(can_x, frame_center[0]): audiopath = audio_paths["right"]
         else: audiopath = audio_paths["shoot"]
 
         playsound(audiopath, False)
