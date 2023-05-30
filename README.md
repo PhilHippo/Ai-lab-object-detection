@@ -36,7 +36,7 @@ To build it we use the **negDesFileGenerator()** function in fileGeneration.py.
 
 Positive Samples are images containing the object you want to detect.
 
-Once the positive images are obtained we must proceed with the creation of the **Positive Description File** which contains the following information for each line:
+Once the positive images are collected we must proceed with the creation of the **Positive Description File** which contains the following information for each line:
 
 1. the image path
 2. the number of occurances of the object in that image
