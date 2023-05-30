@@ -98,8 +98,8 @@ We can comment all the other models that are listed.
 
 Below this line of code you see :
 
- 	 ▪	  a line for your  SSID
-	 ▪    a line for your  network access password.
+* A line for your  SSID
+* A line for your  network access password.
 
 This is a **very important step** for the configuration of our ESP32-CAM since the live-streaming will be based on your wifi connection, so the wifi connection of the PC and of the ESP32 must be the same, otherwise your ESP32 won’t work .
 
