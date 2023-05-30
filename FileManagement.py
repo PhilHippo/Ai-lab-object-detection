@@ -2,14 +2,16 @@ import os
 import cv2
 
 
-#example: sequentialjpg("positive", "_pos.jpg")
-def sequentialjpg(path: str, suffix: str) -> None:
-    folder_path = path  # Replace with the actual path to the folder containing images
+#example: sequential_jpg("positive", "_pos.jpg")
+def sequential_jpg(path: str, suffix: str) -> None:
+    """Opens a folder and renames sequentially the images contained in it
+    """
+
     counter = 1
 
-    for filename in os.listdir(folder_path):
+    for filename in os.listdir(path):
         new_filename = str(counter) + suffix
-        os.rename(os.path.join(folder_path, filename), os.path.join(folder_path, new_filename))
+        os.rename(os.path.join(path, filename), os.path.join(path, new_filename))
         counter += 1
 
 
@@ -43,10 +45,13 @@ def sequentialAnnotation(path: str, suffix: str) -> None:
 
 
 def resize(directory: str, resize_factor: float) -> None:
+    """Resizes all the images of a folder
+    """
+
     for filename in os.listdir(directory):
         if filename.endswith(".jpg") or filename.endswith(".png"):
             # Open the image using Pillow (PIL)
-            image = Image.open(os.path.join(directory, filename))
+            image = image.open(os.path.join(directory, filename))
 
             # Get the original size of the image
             width, height = image.size
@@ -64,8 +69,7 @@ def resize(directory: str, resize_factor: float) -> None:
 
 #example: sequentialjpg("old_negative", "new_negative")
 def applyFilters(folder_path: str, new_folder_path: str) -> None:
-    """
-    Applies a pipeline of filters to all the images in a given folder and puts them in a new folder
+    """Applies a pipeline of filters to all the images in a given folder and puts them in a new folder
     """
 
     files = os.listdir(folder_path)
@@ -87,9 +91,10 @@ def applyFilters(folder_path: str, new_folder_path: str) -> None:
 
 
 def createCanAnnotations():
+    """Automatically creates the annotations for the cans
+    """
+
     for img in os.listdir("cans"):
         line = "positive" + '/' + img + ' 1 0 0 24 65\n'
         with open('info.dat','a') as f:
             f.write(line)
-
-applyFilters("raw_pictures_annotations\our_raw_positives", "new_positive/")
