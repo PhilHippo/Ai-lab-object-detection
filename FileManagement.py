@@ -91,3 +91,5 @@ def createCanAnnotations():
         line = "positive" + '/' + img + ' 1 0 0 24 65\n'
         with open('info.dat','a') as f:
             f.write(line)
+
+applyFilters("raw_pictures_annotations\our_raw_positives", "new_positive/")

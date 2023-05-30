@@ -38,3 +38,8 @@ generate_negative_description_file()
 #D:\REPOSITORIES\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples.exe -img cans\c1.jpg -bg neg.txt -info info.lst -pngoutput info -maxxangle 0.5 -maxyangle 0.5 -maxzangle 0.5 -num 3200
 #D:\REPOSITORIES\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples -info info.lst -num 1000 -w 15 -h 41 -vec pos.vec
 #D:\REPOSITORIES\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 15 -h 41 -numPos 4000 -numNeg 2000 -numStages 12 -acceptanceRatioBreakValue 0.0005
+
+
+#run "D:\REPOSITORIES\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_createsamples.exe -info pos.txt -w 20 -h 55 -num 1300 -vec pos.vec"
+
+#D:\REPOSITORIES\AI_PROJECT_STUFF\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data cascade/ -vec pos.vec -bg neg.txt -w 20 -h 55  -numPos 1000 -numNeg 500 -numStages 10 -acceptanceRatioBreakValue 0.0001
