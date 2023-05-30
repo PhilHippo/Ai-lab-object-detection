@@ -63,7 +63,7 @@ To connect the FTDI adapter to the ESP32-CAM we followed a specific module that 
 
 This is the module : 
 
-![](download-1.png)
+![](module.png)
 
 
 
