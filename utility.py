@@ -137,7 +137,7 @@ def filterPipeline(frame):
     adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
     adjusted_frame = cv.equalizeHist(adjusted_frame)
 
-    clahe = cv.createCLAHE(clipLimit=5, tileGridSize=(8,8))
-    adjusted_image = clahe.apply(adjusted_frame)
+    #clahe = cv.createCLAHE(clipLimit=5, tileGridSize=(8,8))
+    #adjusted_image = clahe.apply(adjusted_frame)
 
     return adjusted_frame

@@ -1,0 +1,1 @@
+scaleFactor=1.3, minNeighbors=45
