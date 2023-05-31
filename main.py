@@ -24,10 +24,8 @@ while(True):
     frame = cap.read()[1]
 
     #pipeline filters
-    adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
-    #adjusted_frame = cv.equalizeHist(adjusted_frame)
-    #adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)
-
+    adjusted_frame = filterPipeline(frame) 
+    
     # do object detection
     rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.1, minNeighbors=1)
 

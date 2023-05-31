@@ -79,9 +79,10 @@ def applyFilters(folder_path: str, new_folder_path: str) -> None:
         image_path = os.path.join(folder_path, file_name)
         image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2GRAY)
         image = cv2.equalizeHist(image)
+        clahe = cv2.createCLAHE(clipLimit=5, tileGridSize=(8,8))
+        image = clahe.apply(image)
 
         #image = cv2.Canny(image, threshold1=30, threshold2=100)
-        # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         #image = cv2.GaussianBlur(image, (5, 5), 0)
         #image = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 9, 2)
 
