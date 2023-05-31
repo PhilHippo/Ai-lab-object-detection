@@ -4,7 +4,7 @@ from utility import *
 # load the trained model
 #Windows traditionally uses the backslash (\) to separate directories in file paths
 #other operationg systems (including Mac OS X and Linux) use forward slash (/)
-cascade_model = cv.CascadeClassifier('cascade/cascade.xml')
+cascade_model = cv.CascadeClassifier('1-1\cascade\cascade.xml')
 cap = cv.VideoCapture(0)
 
 #list of audio paths
