@@ -82,14 +82,14 @@ The next step is to load the **Sample Sketch**, provided by the ARDUINO IDE, und
 You can load it by:
 
 * Open the Arduino IDE
-* Click on the File menu item on the top menu bar.
-* Scroll down and click on Examples. A sub-menu will open.
-* Scroll down the sub-menu and look for Examples for A-Thinker ESP32-CAM.
-* Below this you’ll see an entry for ESP32. Click on it and another sub-menu will open.
-* Select Camera from this sub-menu.
-* Select CameraWebServer.
+* Click on the File menu item on the top menu bar
+* Scroll down and click on Examples. A sub-menu will open
+* Scroll down the sub-menu and look for Examples for A-Thinker ESP32-CAM
+* Below this you’ll see an entry for ESP32. Click on it and another sub-menu will open
+* Select Camera from this sub-menu
+* Select CameraWebServer
 
-This sketch allows you to interact with the camera by changing the settings on the code .
+This sketch allows you to interact with the camera by changing the settings on the code.
 For our project we will change the sketch by selecting the right Camera Model that we need for our board, which is: 
 
 **CAMERA_MODEL_AI_THINKER**
