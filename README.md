@@ -71,7 +71,7 @@ To interactively control the ESP32-CAM we use the **ARDUINO IDE**, downloaded at
 
 https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE
 
-Once the download is completed, inside the ARDUINO IDE we had to install specific **Boards** for ESP32 ( collection of files needed to compile and upload sketches for a board ) using this JSON link in the Board Manager:
+Once the download is completed, inside the ARDUINO IDE we had to install specific **Boards** for ESP32 (collection of files needed to compile and upload sketches for a board) using this JSON link in the Board Manager:
 
 https://dl.espressif.com/dl/package_esp32_index.json
 
