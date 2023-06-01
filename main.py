@@ -4,7 +4,7 @@ from utility import *
 # load the trained model
 #Windows traditionally uses the backslash (\) to separate directories in file paths
 #other operationg systems (including Mac OS X and Linux) use forward slash (/)
-cascade_model = cv.CascadeClassifier('cascadebest/cascade.xml')
+cascade_model = cv.CascadeClassifier('cascadebest\cascade.xml')
 cap = cv.VideoCapture(0)
 
 #list of audio paths
@@ -24,12 +24,10 @@ while(True):
     frame = cap.read()[1]
 
     #pipeline filters
-    adjusted_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   
-    adjusted_frame = cv.equalizeHist(adjusted_frame)
-    adjusted_frame = cv.GaussianBlur(adjusted_frame, (3, 3), 0)
-
+    adjusted_frame = filterPipeline(frame) 
+    
     # do object detection
-    rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.2, minNeighbors=10)
+    rectangles = cascade_model.detectMultiScale(adjusted_frame, scaleFactor=1.1, minNeighbors=11)
 
     # draw the detection results onto the original image
     detection_image = draw_rectangle(rectangles, frame)
