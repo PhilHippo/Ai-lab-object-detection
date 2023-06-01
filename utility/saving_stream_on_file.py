@@ -3,7 +3,9 @@ import cv2
 
 # http://192.168.94.231 Mi A3
 
-URL = "http://192.168.94.231"
+#URL = "http://192.168.94.231" #casa simo
+
+URL= "http://192.168.1.15" #casa anna 
 
 cap = cv2.VideoCapture(URL + ":81/stream")
 

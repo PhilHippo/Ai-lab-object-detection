@@ -2,7 +2,8 @@ import cv2 as cv
 from utility import *
 
 #URL = "http://192.168.94.231" # Mi A3
-URL = "http://192.168.178.149" # Wi Fi casa
+#URL = "http://192.168.178.149" # Wi Fi casa
+URL= "http://192.168.1.15" # casa Anna 
 
 # load the trained model
 #Windows traditionally uses the backslash (\) to separate directories in file paths
