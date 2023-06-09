@@ -2,6 +2,8 @@
 
 Object Detection using Haar Cascade Classifier
 
+![](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/images/test.gif)
+
 ## Introduction
 
 The aim of this project is to build a prototype of a real-world gun aim assist using object detection and audio signals.
