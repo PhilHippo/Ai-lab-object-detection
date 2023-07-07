@@ -26,11 +26,10 @@ In order to train a Cascade Classifier we need first and foremost:
 
 ### Negative Samples
 
-Negative samples are images of environments not containing the object we want to detect, but where the object is likely to be found. For this reason Negative Samples are also called Background Samples or Background Images.
+Negative samples are images of environments not containing the object we want to detect, but where the object is likely to be found. For this reason, Negative Samples are also called Background Samples or Background Images.
 
 These negative images should then be listed in a special **Negative Description File** file whose structure is shown below:
 
-***DA COMPLETARE UNA VOLTA SISTEMATE LE CARTELLE***
 
 To build it we use the **negDesFileGenerator()** function in fileGeneration.py.
 
@@ -41,25 +40,25 @@ Positive Samples are images containing the object you want to detect.
 Once the positive images are collected we must proceed with the creation of the **Positive Description File** which contains the following information for each line:
 
 1. the image path
-2. the number of occurances of the object in that image
+2. the number of occurrences of the object in that image
 3. the coordinates of the object's bounding rectangle (x, y, width, height)
 
 To build it we use the OpenCV's integrated annotation tool: **opencv_annotation**.
 
 ### .xml file creation
 
-Next thing we need to do is creating a **pos.vec** file from our pos.txt file.
+The next thing we need to do is creating a **pos.vec** file from our pos.txt file.
 To do that we use the **opencv_createsamples** application.
 Look at "create samples output.png".
 
 The **cascade.xml** file in the cascade folder is the actual trained model.
-To create that file we use the OpenCV's integrated **opencv_createsamples** application taking as input pos.vec and neg.txt.
+To create that file we use OpenCV's integrated **opencv_createsamples** application taking as input pos.vec and neg.txt.
 
 # ESP 32 cam
 
 To achieve the goal of object detecting we use the **ESP32-CAM**, which is a  microcontroller from Espressif that  has an integrated video camera with the ability of live streaming once a wireless connection is established between the ESP 32 and our device. 
 
-In order to work with the ESP32-CAM we need an external **FTDI** adapter which allows us to connect the camera to our PC via USB.
+In order to work with the ESP32-CAM we need an external **FTDI** adapter that allows us to connect the camera to our PC via USB.
 
 To connect the FTDI adapter to the ESP32-CAM we followed a specific module that showed us which **GPIO pins** we had to link. 
 
@@ -96,9 +95,9 @@ For our project we will change the sketch by selecting the right Camera Model th
 
 **CAMERA_MODEL_AI_THINKER**
 
-We can comment all the other models that are listed.
+We can comment on all the other models that are listed.
 
-Below this line of code you see:
+Below this line of code, you see:
 
 * A line for your  SSID
 * A line for your  network access password
@@ -113,11 +112,11 @@ The next step is to **obtain the IP address** of the ESP32-CAM. This allows us t
 
 In order to get the IP address we open the **Serial Monitor** and set it to a baud rate of 115,200 bps. By pressing the Reset switch located on the Camera module we will be able to see the IP Address of the camera in the form of a URL; this means that the board has connected to the network. 
 
-Then we copy this address on the web browser where we will be able to see the webpage of the camera; through this webpage we can change the settings of the ESP32.
+Then we copy this address on the web browser where we will be able to see the webpage of the camera; through this webpage, we can change the settings of the ESP32.
 
 In order to start the live streaming you have to click on the **Start Stream** button.
 
-For our project in order to perform object detection, we have to catch the ESP32-CAM live frame of the streaming by using open-cv funciton: **Cv2.videocapture**.
+For our project in order to perform object detection, we have to catch the ESP32-CAM live frame of the streaming by using open-cv function: **Cv2.videocapture**.
 
 
 	
