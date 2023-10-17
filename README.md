@@ -28,8 +28,7 @@ In order to train a Cascade Classifier we need first and foremost:
 
 Negative samples are images of environments not containing the object we want to detect, but where the object is likely to be found. For this reason, Negative Samples are also called Background Samples or Background Images.
 
-These negative images should then be listed in a special **Negative Description File** file whose structure is shown below:
-
+These negative images should then be listed in a special **Negative Description File** which records the image path of each image, one per line.
 
 To build it we use the **negDesFileGenerator()** function in fileGeneration.py.
 
