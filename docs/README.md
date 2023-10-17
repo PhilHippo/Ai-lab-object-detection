@@ -114,6 +114,11 @@ In order to start the live streaming you have to click on the **Start Stream** b
 
 For our project in order to perform object detection, we have to catch the ESP32-CAM live frame of the streaming by using open-cv function: **Cv2.videocapture**.
 
+## Authors
+
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
 ## License
 
 Ai-lab-object-detection is released under the [MIT License](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/LICENSE). 
