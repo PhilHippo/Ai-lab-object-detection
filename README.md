@@ -48,7 +48,6 @@ To build it we use the OpenCV's integrated annotation tool: **opencv_annotation*
 
 The next thing we need to do is creating a **pos.vec** file from our pos.txt file.
 To do that we use the **opencv_createsamples** application.
-Look at "create samples output.png".
 
 The **cascade.xml** file in the cascade folder is the actual trained model.
 To create that file we use OpenCV's integrated **opencv_createsamples** application taking as input pos.vec and neg.txt.
