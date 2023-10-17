@@ -2,7 +2,7 @@
 
 Object Detection using Haar Cascade Classifier
 
-![](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/images/test.gif)
+![](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/documentation/README images/video example.gif)
 
 ## Introduction
 
@@ -62,7 +62,7 @@ To connect the FTDI adapter to the ESP32-CAM we followed a specific module that 
 
 This is the module: 
 
-![](images/module.png)
+![](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/documentation/README images/ESP 32 cam module.png)
 
 
 
