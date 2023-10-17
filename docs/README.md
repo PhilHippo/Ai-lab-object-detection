@@ -116,4 +116,4 @@ For our project in order to perform object detection, we have to catch the ESP32
 
 ## License
 
-Ai-lab-object-detection is released under the [MIT License](Ai-lab-object-detection/LICENSE). 
+Ai-lab-object-detection is released under the [MIT License](Ai-lab-object-detection/blob/main/LICENSE). 
