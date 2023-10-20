@@ -62,7 +62,7 @@ To connect the FTDI adapter to the ESP32-CAM we followed a specific module that 
 
 This is the module: 
 
-![](https://github.com/PhilHippo/Ai-lab-object-detection/blob/main/docs/README_images/ESP_32_cam_module.png)
+![](docs/README_images/ESP_32_cam_module.png)
 
 To interactively control the ESP32-CAM we use the **ARDUINO IDE**, downloaded at this link:
 
