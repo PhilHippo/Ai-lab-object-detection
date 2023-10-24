@@ -116,7 +116,7 @@ For our project in order to perform object detection, we have to catch the ESP32
 
 ## Authors
 
-
+![]./README_images/CONTRIBUTORS.svg
 
 ## License
 
