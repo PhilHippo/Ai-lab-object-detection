@@ -2,7 +2,7 @@
 
 Object Detection using Haar Cascade Classifier
 
-![](docs/README_images/video_example.gif)
+![](./README_images/video_example.gif)
 
 ## Introduction
 
@@ -62,7 +62,7 @@ To connect the FTDI adapter to the ESP32-CAM we followed a specific module that 
 
 This is the module: 
 
-![](docs/README_images/ESP_32_cam_module.png)
+![](./README_images/ESP_32_cam_module.png)
 
 To interactively control the ESP32-CAM we use the **ARDUINO IDE**, downloaded at this link:
 
@@ -116,9 +116,8 @@ For our project in order to perform object detection, we have to catch the ESP32
 
 ## Authors
 
-<!-- readme: collaborators -start -->
-<!-- readme: collaborators -end -->
+
 
 ## License
 
-Ai-lab-object-detection is released under the [MIT License](LICENSE). 
+Ai-lab-object-detection is released under the [MIT License](../LICENSE).
