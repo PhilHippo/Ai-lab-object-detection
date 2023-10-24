@@ -10,9 +10,9 @@ jobs:
       - uses: wow-actions/contributors-list@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          userNameHeight: 19
-          avatarSize: 64
-          avatarMargin: 10
+          userNameHeight: 22
+          avatarSize: 70
+          avatarMargin: 15
           svgPath: docs/README_images/CONTRIBUTORS.svg
           itemTemplate: >
             <g transform="translate({{ x }}, {{ y }})">
